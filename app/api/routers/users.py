@@ -12,5 +12,11 @@ router = APIRouter(prefix="/users", tags=["user"])
 @router.post("/ask")
 async def ask(q: QueryData):
     desc = q.desc.split('}')[-1].strip()
-    s = pd.Series({"Question": q.question, "desc": desc})
-    return {"output_data": predict(s)}
+    s = q.question + '\n' + desc
+    
+    predictions, probabilities = predict(s)
+    
+    predictions_list = predictions.tolist()
+    probabilities_list = probabilities.tolist()
+    
+    return {"output_data": predictions_list, "probabilities": probabilities_list}

@@ -13,7 +13,6 @@ transformers = "^4.46.3"
 sentence-transformers = "^3.3.1"
 torch = "^2.5.1"
 python-dotenv = "^1.0.1"
-llama-cpp-python = "^0.3.2"
 fastapi = "^0.115.5"
 uvicorn = "^0.32.1"
 
